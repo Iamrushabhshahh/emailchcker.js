@@ -1,0 +1,18 @@
+# From node:lts-alpine3.19
+# FROM node:18-alpinedocker 
+#FROM alpine:latest
+
+RUN apk update && apk add nodejs npm chromium
+
+# Verify Node.js and npm installation
+RUN node --version
+RUN npm --version
+RUN 
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install express puppeteer
+
+CMD ["node", "emailChecker.js"]
