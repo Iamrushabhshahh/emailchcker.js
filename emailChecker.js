@@ -23,7 +23,7 @@ app.get('/check-email', async (req, res) => {
 
     browser = await puppeteer.launch({
       headless: true, // Set to true in production
-      args: [`--proxy-server=${proxyUrl}`], // Proxy server argument
+      args: [`--proxy-server=${proxyUrl}`,'--no-sandbox', '--disable-setuid-sandbox'], // Proxy server argument
     });
     const page = await browser.newPage();
 
